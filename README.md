@@ -54,7 +54,7 @@ Business Recommendations
 |---|---|
 | **SQLite** *(optional)* | Lightweight database to persist uploaded datasets between sessions |
 
-## Dev tools
+### Dev tools
 | Tech | Purpose |
 |---|---|
 | **Git/GitHub** | Version control |
