@@ -40,7 +40,14 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- Python analysis and data-cleaning logic is typed and has pytest coverage planned.
+- Models are simple and explainable; any complexity has a documented measurable
+  benefit.
+- Every user-visible prediction includes a limitation note in the UI design.
+- Backend analytical logic is defined in plain Python functions independent of
+  FastAPI routes.
+- The frontend remains a single-page React dashboard with loading and error states.
+- The plan delivers a minimal, independently testable MVP increment.
 
 ## Project Structure
 

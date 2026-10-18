@@ -1,50 +1,93 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 1.0.0 -> 1.1.0
+- Modified principles: I. Typed and Tested Python -> I. Typed, Tested Python Analysis;
+  II. Simple, Explainable Machine Learning -> II. Simple and Explainable Models;
+  III. Prediction Limitations -> III. Visible Prediction Limitations;
+  IV. Single-Page React Dashboard -> V. Single-Page React Dashboard;
+  V. Simplicity Over Cleverness -> I, II, and VI
+- Added principles: IV. API-Independent Backend Logic; VI. Incremental MVP Delivery
+- Added sections: Technical Constraints; Development Workflow
+- Removed sections: none
+- Templates requiring updates: .specify/templates/plan-template.md (updated);
+  .specify/templates/tasks-template.md (updated); .specify/templates/spec-template.md
+  (no update required)
+- Follow-up TODOs: none
+-->
+
+# Business Intelligence Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Typed, Tested Python Analysis
+All Python code MUST use appropriate type hints. Data cleaning and analysis
+functions MUST have pytest coverage, and new or changed behavior MUST include
+tests before it is considered complete. This keeps the analytical foundation
+safe to change and makes the student project reproducible.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Simple and Explainable Models
+The project MUST prefer simple, explainable machine-learning models over
+complex models when both satisfy the requirement. Features, assumptions,
+training data, and evaluation results MUST be understandable to contributors
+and users. More complex modeling requires a documented, measurable benefit.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Visible Prediction Limitations
+Every prediction shown to a user MUST include a nearby note describing its
+limitations, relevant assumptions, uncertainty where available, and the
+conditions under which it may fail. The interface MUST NOT present predictions
+as guarantees.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. API-Independent Backend Logic
+Data cleaning, analysis, and prediction behavior MUST live in plain Python
+functions independent of FastAPI routes, request objects, and response
+serialization. The API layer MUST adapt validated inputs and outputs rather
+than contain analytical logic. This separation keeps core behavior directly
+testable and reusable.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Single-Page React Dashboard
+The UI MUST be a single-page React dashboard. It MUST provide explicit
+loading and error states for asynchronous work, and it MUST present analysis
+results, predictions, and their limitations within the dashboard experience.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+### VI. Incremental Minimal MVP
+Development MUST proceed in small, testable increments. The MVP MUST contain
+only the smallest scope that demonstrates the core finance-analysis workflow.
+New abstractions, dependencies, and features MUST be justified by a concrete
+requirement or validated user need.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+## Technical Constraints
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+- The backend MUST use Python with FastAPI, pandas, and scikit-learn as
+  appropriate to the feature, while keeping analytical functions independent
+  of the API layer.
+- Python data-cleaning and analysis functions MUST be typed and tested with
+  pytest.
+- Model outputs MUST expose limitations in the React dashboard alongside the
+  corresponding prediction.
+- Frontend work MUST preserve the single-page React dashboard architecture
+  and its loading and error states.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+
+- Each increment MUST have a clear, independently testable outcome.
+- Reviews MUST verify type hints, pytest coverage for affected data-cleaning
+  and analysis functions, model explainability, prediction limitation
+  disclosures, API-independent backend logic, and UI loading/error states
+  where applicable.
+- Changes MUST be validated with the smallest relevant pytest, type-checking,
+  and frontend build or test commands before broader validation.
+- Any complexity that cannot be avoided MUST be documented with the concrete
+  requirement or measurable benefit that justifies it.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution is the governing quality standard for the project. All
+feature specifications, plans, implementations, and reviews MUST comply with
+these principles. Amendments MUST update this document, record the rationale,
+increment the semantic version, and review affected templates and guidance.
+The ratification date remains the original adoption date; the last-amended
+date changes whenever the constitution changes. If a conflict exists, the
+simplest compliant interpretation takes precedence until the constitution is
+amended.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.1.0 | **Ratified**: 2026-10-16 | **Last Amended**: 2026-10-18
