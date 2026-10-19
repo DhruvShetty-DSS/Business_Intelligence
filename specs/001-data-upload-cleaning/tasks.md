@@ -25,14 +25,14 @@ implemented and tested independently after the foundational package exists.
 
 **Purpose**: Establish the minimal Python package and test environment.
 
-- [ ] T001 Create the backend package directories and package markers in
+- [x] T001 Create the backend package directories and package markers in
   `backend/app/__init__.py`, `backend/tests/unit/`, and
   `backend/tests/integration/`.
-- [ ] T002 Create the Python dependency manifest in `backend/requirements.txt`
+- [x] T002 Create the Python dependency manifest in `backend/requirements.txt`
   with FastAPI, Uvicorn, pandas, Pydantic, pytest, and HTTPX test dependencies.
-- [ ] T003 [P] Add pytest configuration and test discovery settings in
+- [x] T003 [P] Add pytest configuration and test discovery settings in
   `backend/pytest.ini`.
-- [ ] T004 [P] Add a backend development and API startup section to
+- [x] T004 [P] Add a backend development and API startup section to
   `README.md` that links to the feature quickstart.
 
 ---
