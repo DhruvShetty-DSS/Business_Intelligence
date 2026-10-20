@@ -45,15 +45,15 @@ mapping before user-story implementation.
 **Critical**: Complete this phase before implementing any user story endpoint
 or cleaning behavior.
 
-- [ ] T005 Define typed transaction, validation-error, cleaning-summary, and
+- [x] T005 Define typed transaction, validation-error, cleaning-summary, and
   upload-result models in `backend/app/schemas.py` based on
   `data-model.md` and `contracts/upload-api.md`.
-- [ ] T006 Define stable validation error codes, canonical output columns, and
+- [x] T006 Define stable validation error codes, canonical output columns, and
   the bounded preview size in `backend/app/cleaning.py`.
-- [ ] T007 [P] Add shared test fixtures for valid CSV bytes, malformed rows,
+- [x] T007 [P] Add shared test fixtures for valid CSV bytes, malformed rows,
   duplicates, blank rows, and optional categories in
   `backend/tests/conftest.py`.
-- [ ] T008 [P] Add typed application configuration for the upload size limit
+- [x] T008 [P] Add typed application configuration for the upload size limit
   and preview limit in `backend/app/config.py` without introducing persistence
   or user state.
 
