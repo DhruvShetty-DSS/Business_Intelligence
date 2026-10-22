@@ -75,24 +75,24 @@ summary counts.
 
 > Write these tests first and verify they fail before implementation.
 
-- [ ] T009 [P] [US1] Add unit tests for parsing a valid CSV, canonicalizing
+- [x] T009 [P] [US1] Add unit tests for parsing a valid CSV, canonicalizing
   headers, and returning the four output fields in
   `backend/tests/unit/test_cleaning.py`.
-- [ ] T010 [P] [US1] Add API contract tests for a successful multipart upload,
+- [x] T010 [P] [US1] Add API contract tests for a successful multipart upload,
   filename propagation, summary counts, and bounded preview in
   `backend/tests/integration/test_upload.py`.
 
 ### Implementation for User Story 1
 
-- [ ] T011 [US1] Implement typed CSV parsing and canonical header mapping in
+- [x] T011 [US1] Implement typed CSV parsing and canonical header mapping in
   `backend/app/cleaning.py`, including UTF-8 BOM handling and extra-column
   exclusion.
-- [ ] T012 [US1] Implement successful clean-result construction and summary
+- [x] T012 [US1] Implement successful clean-result construction and summary
   counts in `backend/app/cleaning.py` for valid transaction rows.
-- [ ] T013 [US1] Implement the FastAPI application and multipart `POST /upload`
+- [x] T013 [US1] Implement the FastAPI application and multipart `POST /upload`
   route in `backend/app/main.py`, delegating all cleaning work to
   `backend/app/cleaning.py`.
-- [ ] T014 [US1] Serialize the successful response according to
+- [x] T014 [US1] Serialize the successful response according to
   `contracts/upload-api.md` using the typed models in
   `backend/app/schemas.py`.
 
