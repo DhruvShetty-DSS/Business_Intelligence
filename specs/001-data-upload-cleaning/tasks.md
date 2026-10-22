@@ -25,14 +25,14 @@ implemented and tested independently after the foundational package exists.
 
 **Purpose**: Establish the minimal Python package and test environment.
 
-- [ ] T001 Create the backend package directories and package markers in
+- [x] T001 Create the backend package directories and package markers in
   `backend/app/__init__.py`, `backend/tests/unit/`, and
   `backend/tests/integration/`.
-- [ ] T002 Create the Python dependency manifest in `backend/requirements.txt`
+- [x] T002 Create the Python dependency manifest in `backend/requirements.txt`
   with FastAPI, Uvicorn, pandas, Pydantic, pytest, and HTTPX test dependencies.
-- [ ] T003 [P] Add pytest configuration and test discovery settings in
+- [x] T003 [P] Add pytest configuration and test discovery settings in
   `backend/pytest.ini`.
-- [ ] T004 [P] Add a backend development and API startup section to
+- [x] T004 [P] Add a backend development and API startup section to
   `README.md` that links to the feature quickstart.
 
 ---
@@ -45,15 +45,15 @@ mapping before user-story implementation.
 **Critical**: Complete this phase before implementing any user story endpoint
 or cleaning behavior.
 
-- [ ] T005 Define typed transaction, validation-error, cleaning-summary, and
+- [x] T005 Define typed transaction, validation-error, cleaning-summary, and
   upload-result models in `backend/app/schemas.py` based on
   `data-model.md` and `contracts/upload-api.md`.
-- [ ] T006 Define stable validation error codes, canonical output columns, and
+- [x] T006 Define stable validation error codes, canonical output columns, and
   the bounded preview size in `backend/app/cleaning.py`.
-- [ ] T007 [P] Add shared test fixtures for valid CSV bytes, malformed rows,
+- [x] T007 [P] Add shared test fixtures for valid CSV bytes, malformed rows,
   duplicates, blank rows, and optional categories in
   `backend/tests/conftest.py`.
-- [ ] T008 [P] Add typed application configuration for the upload size limit
+- [x] T008 [P] Add typed application configuration for the upload size limit
   and preview limit in `backend/app/config.py` without introducing persistence
   or user state.
 
@@ -75,24 +75,24 @@ summary counts.
 
 > Write these tests first and verify they fail before implementation.
 
-- [ ] T009 [P] [US1] Add unit tests for parsing a valid CSV, canonicalizing
+- [x] T009 [P] [US1] Add unit tests for parsing a valid CSV, canonicalizing
   headers, and returning the four output fields in
   `backend/tests/unit/test_cleaning.py`.
-- [ ] T010 [P] [US1] Add API contract tests for a successful multipart upload,
+- [x] T010 [P] [US1] Add API contract tests for a successful multipart upload,
   filename propagation, summary counts, and bounded preview in
   `backend/tests/integration/test_upload.py`.
 
 ### Implementation for User Story 1
 
-- [ ] T011 [US1] Implement typed CSV parsing and canonical header mapping in
+- [x] T011 [US1] Implement typed CSV parsing and canonical header mapping in
   `backend/app/cleaning.py`, including UTF-8 BOM handling and extra-column
   exclusion.
-- [ ] T012 [US1] Implement successful clean-result construction and summary
+- [x] T012 [US1] Implement successful clean-result construction and summary
   counts in `backend/app/cleaning.py` for valid transaction rows.
-- [ ] T013 [US1] Implement the FastAPI application and multipart `POST /upload`
+- [x] T013 [US1] Implement the FastAPI application and multipart `POST /upload`
   route in `backend/app/main.py`, delegating all cleaning work to
   `backend/app/cleaning.py`.
-- [ ] T014 [US1] Serialize the successful response according to
+- [x] T014 [US1] Serialize the successful response according to
   `contracts/upload-api.md` using the typed models in
   `backend/app/schemas.py`.
 

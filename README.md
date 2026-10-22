@@ -62,3 +62,28 @@ Business Recommendations
 | **npm** | Frontend package management |
 | **pip / venv** | Backend package management and environment isolation |
 
+## Backend development
+
+Create and activate a virtual environment, then install the backend
+dependencies:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r backend\requirements.txt
+```
+
+Run the backend tests from the repository root:
+
+```powershell
+python -m pytest backend\tests
+```
+
+Start the API after the application entry point is implemented:
+
+```powershell
+python -m uvicorn backend.app.main:app --reload
+```
+
+The current MVP backend plan and upload validation scenarios are documented in
+[specs/001-data-upload-cleaning/quickstart.md](specs/001-data-upload-cleaning/quickstart.md).
