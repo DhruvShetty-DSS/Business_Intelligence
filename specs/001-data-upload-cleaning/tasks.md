@@ -113,23 +113,23 @@ verify the status code, error code, field, and row information.
 
 > Write these tests first and verify they fail before implementation.
 
-- [ ] T015 [P] [US2] Add unit tests for missing required columns, invalid dates,
+- [x] T015 [P] [US2] Add unit tests for missing required columns, invalid dates,
   invalid amounts, empty files, no transaction rows, and row-level error
   metadata in `backend/tests/unit/test_cleaning.py`.
-- [ ] T016 [P] [US2] Add API tests for HTTP 400 invalid-file responses,
+- [x] T016 [P] [US2] Add API tests for HTTP 400 invalid-file responses,
   HTTP 413 upload-limit responses, missing multipart files, and the guarantee
   that errors never return partial successful data in
   `backend/tests/integration/test_upload.py`.
 
 ### Implementation for User Story 2
 
-- [ ] T017 [US2] Implement required-column, empty-file, and unreadable-CSV
+- [x] T017 [US2] Implement required-column, empty-file, and unreadable-CSV
   validation in `backend/app/cleaning.py` with actionable error objects.
-- [ ] T018 [US2] Implement row-level date and numeric-amount validation with
+- [x] T018 [US2] Implement row-level date and numeric-amount validation with
   one-based CSV row numbers in `backend/app/cleaning.py`.
-- [ ] T019 [US2] Map cleaning validation failures and unsupported uploads to
+- [x] T019 [US2] Map cleaning validation failures and unsupported uploads to
   the documented JSON error shape and HTTP statuses in `backend/app/main.py`.
-- [ ] T020 [US2] Enforce the configured upload size limit before parsing and
+- [x] T020 [US2] Enforce the configured upload size limit before parsing and
   return HTTP 413 from `backend/app/main.py` when exceeded.
 
 **Checkpoint**: Invalid uploads fail explicitly, explain what to fix, and

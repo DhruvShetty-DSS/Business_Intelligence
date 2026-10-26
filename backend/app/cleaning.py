@@ -55,7 +55,14 @@ def _canonicalize_headers(frame: pd.DataFrame) -> pd.DataFrame:
         raise CleaningError(
             ERROR_CODES["MISSING_COLUMNS"],
             f"Missing required columns: {', '.join(missing)}.",
-            [_error(ERROR_CODES["MISSING_COLUMNS"], "Required column is missing.", column)],
+            [
+                _error(
+                    ERROR_CODES["MISSING_COLUMNS"],
+                    "Required column is missing.",
+                    missing_column,
+                )
+                for missing_column in missing
+            ],
         )
 
     selected = {canonical: mapping[canonical] for canonical in mapping}
@@ -79,7 +86,12 @@ def clean_csv(csv_bytes: bytes, filename: str = "upload.csv") -> UploadResult:
             keep_default_na=False,
             skip_blank_lines=False,
         )
-    except (pd.errors.ParserError, UnicodeDecodeError, ValueError) as exc:
+    except (
+        pd.errors.EmptyDataError,
+        pd.errors.ParserError,
+        UnicodeDecodeError,
+        ValueError,
+    ) as exc:
         raise CleaningError(
             ERROR_CODES["UNREADABLE_CSV"], "The uploaded file is not a readable CSV."
         ) from exc
