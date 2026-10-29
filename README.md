@@ -4,8 +4,6 @@
 
 A data-driven Business Intelligence tool that transforms raw business data into meaningful insights through interactive dashboards, visualizations, and analytics. It helps users explore trends, identify patterns, monitor key performance indicators (KPIs), and support data-driven decision-making.
 
-
-
 ## Workflow
 
 Data Upload
@@ -22,68 +20,124 @@ Predictive Analytics & Forecasting
      ↓
 Business Recommendations
 
+## Status
 
+Feature 001 (data upload and cleaning) is in progress:
 
-## Tech Stack
+- Setup: done
+- Foundational: done
+- Phase 3 — upload endpoint: done
 
-### Frontend
-| Tech | Purpose |
+Planned MVP features:
+
+- [ ] 001 Data upload and cleaning (in progress)
+- [ ] 002 Analysis and KPIs
+- [ ] 003 Forecast and suggestions
+- [ ] 004 React dashboard
+
+## Tech stack
+
+| Technology | Used for |
 |---|---|
-| **React** | UI framework — builds the dashboard interface |
-| **Recharts** | Charting library — renders income/expense trends, category breakdowns |
-| **Axios** (or fetch) | Handles HTTP requests to the backend API |
-| **shadcn/ui or Mantine** *(optional)* | Pre-built UI components (buttons, cards, upload widgets) for a polished look without custom CSS |
+| FastAPI | Defines the backend API and `POST /upload` endpoint |
+| Uvicorn | Runs the FastAPI application server |
+| pandas | Parses and cleans uploaded CSV data |
+| Pydantic | Defines typed upload response and validation models |
+| python-multipart | Parses multipart file uploads |
+| pytest | Runs the backend test suite |
+| HTTPX | Provides the HTTP client used by API tests |
+| scikit-learn | **Planned** for future forecasting and machine-learning features |
+| React | **Planned** for the dashboard frontend |
+| Recharts | **Planned** for dashboard charts |
 
-## Backend
-| Tech | Purpose |
-|---|---|
-| **Python** | Core backend language |
-| **FastAPI** | Web framework — exposes analysis/prediction logic as REST API endpoints |
-| **Uvicorn** | ASGI server that runs the FastAPI app |
-| **Pydantic** | Data validation for API request/response models (comes bundled with FastAPI) |
+## Project structure
 
-### Data & machine learning
-| Tech | Purpose |
-|---|---|
-| **pandas** | Data cleaning, transformation, and aggregation |
-| **NumPy** | Numerical operations underlying pandas/sklearn |
-| **scikit-learn** | Simple ML models (e.g. linear regression for forecasting) |
-| **Prophet** *(optional alt. to sklearn)* | Time-series forecasting, purpose-built for trend/seasonality prediction |
-
-### Storage
-| Tech | Purpose |
-|---|---|
-| **SQLite** *(optional)* | Lightweight database to persist uploaded datasets between sessions |
-
-### Dev tools
-| Tech | Purpose |
-|---|---|
-| **Git/GitHub** | Version control |
-| **npm** | Frontend package management |
-| **pip / venv** | Backend package management and environment isolation |
-
-## Backend development
-
-Create and activate a virtual environment, then install the backend
-dependencies:
-
-```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-python -m pip install -r backend\requirements.txt
+```text
+backend/   FastAPI application, CSV cleaning code, requirements, and tests
+specs/     Feature specifications, plans, contracts, and task tracking
+.specify/  GitHub Spec Kit configuration, workflows, templates, and constitution
+.github/   Spec Kit agents and skills used during development
 ```
 
-Run the backend tests from the repository root:
+## Getting started
+
+From the project root, create and activate the backend virtual environment:
 
 ```powershell
-python -m pytest backend\tests
+cd backend
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+cd ..
 ```
 
-Start the API after the application entry point is implemented:
+Run the tests from the project root:
 
 ```powershell
-python -m uvicorn backend.app.main:app --reload
+python -m pytest
 ```
 
-The current MVP backend plan and upload validation scenarios are documented in
-[specs/001-data-upload-cleaning/quickstart.md](specs/001-data-upload-cleaning/quickstart.md).
+Start the server from the project root:
+
+```powershell
+uvicorn backend.app.main:app --reload
+```
+
+Open the interactive API documentation at
+<http://127.0.0.1:8000/docs>.
+
+## API
+
+### `POST /upload`
+
+Uploads one CSV file using the multipart form field `file`. The CSV must
+contain these required columns:
+
+- `date`
+- `description`
+- `amount`
+
+The `category` column is optional. A successful response includes the cleaned
+canonical columns, row counts, and a bounded preview:
+
+```powershell
+curl.exe -X POST "http://127.0.0.1:8000/upload" `
+  -F "file=@sample-transactions.csv"
+```
+
+Sample success response:
+
+```json
+{
+  "status": "success",
+  "filename": "transactions.csv",
+  "summary": {
+    "input_rows": 2,
+    "blank_rows_removed": 0,
+    "duplicates_removed": 0,
+    "output_rows": 2,
+    "preview_rows": 2
+  },
+  "columns": ["date", "description", "amount", "category"],
+  "preview": [
+    {
+      "date": "2026-01-02",
+      "description": "Coffee",
+      "amount": -4.5,
+      "category": "Food"
+    },
+    {
+      "date": "2026-01-03",
+      "description": "Salary",
+      "amount": 1000.0,
+      "category": "Income"
+    }
+  ]
+}
+```
+
+## Development approach
+
+The project uses GitHub Spec Kit to guide development through a constitution,
+specification, plan, tasks, and implementation workflow. Planning documents
+for each feature live in [specs/](specs/).
