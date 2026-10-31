@@ -6,6 +6,9 @@ A data-driven Business Intelligence tool that transforms raw business data into 
 
 ## Workflow
 
+
+
+
 Data Upload
      ↓
 Data Preprocessing
