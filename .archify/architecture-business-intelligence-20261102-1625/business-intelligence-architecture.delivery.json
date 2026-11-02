@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "23c03c7c-babe-43ba-949a-647e784440cc",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "C:\\Users\\Hp\\OneDrive\\Desktop\\-\\Coding_Related\\Projects\\Business_Intelligence\\Business_Intelligence\\.archify\\architecture-business-intelligence-20261102-1625\\candidate.json",
+  "output": "C:\\Users\\Hp\\OneDrive\\Desktop\\-\\Coding_Related\\Projects\\Business_Intelligence\\Business_Intelligence\\.archify\\architecture-business-intelligence-20261102-1625\\business-intelligence-architecture.html",
+  "specification": {
+    "sha256": "2bdd265bcda37132481fbb31fcba28ca988962740385a949b3ea4736540fd9cc",
+    "bytes": 4108
+  },
+  "artifact": {
+    "sha256": "1242cdb0affeb608a39c7224fd574de0b71b1619048ed0ef8793ccd5fe015951",
+    "bytes": 844352
+  }
+}

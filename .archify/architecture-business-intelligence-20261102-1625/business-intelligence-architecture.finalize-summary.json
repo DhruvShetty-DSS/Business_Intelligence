@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "C:\\Users\\Hp\\OneDrive\\Desktop\\-\\Coding_Related\\Projects\\Business_Intelligence\\Business_Intelligence\\.archify\\architecture-business-intelligence-20261102-1625\\candidate.json",
+    "sha256": "2bdd265bcda37132481fbb31fcba28ca988962740385a949b3ea4736540fd9cc",
+    "bytes": 4108
+  },
+  "artifact": {
+    "path": "C:\\Users\\Hp\\OneDrive\\Desktop\\-\\Coding_Related\\Projects\\Business_Intelligence\\Business_Intelligence\\.archify\\architecture-business-intelligence-20261102-1625\\business-intelligence-architecture.html",
+    "sha256": "1242cdb0affeb608a39c7224fd574de0b71b1619048ed0ef8793ccd5fe015951",
+    "bytes": 844352
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "C:\\Users\\Hp\\OneDrive\\Desktop\\-\\Coding_Related\\Projects\\Business_Intelligence\\Business_Intelligence\\.archify\\architecture-business-intelligence-20261102-1625\\business-intelligence-architecture.finalize.json",
+    "summaryReceipt": "C:\\Users\\Hp\\OneDrive\\Desktop\\-\\Coding_Related\\Projects\\Business_Intelligence\\Business_Intelligence\\.archify\\architecture-business-intelligence-20261102-1625\\business-intelligence-architecture.finalize-summary.json",
+    "browserCheckReceipt": "C:\\Users\\Hp\\OneDrive\\Desktop\\-\\Coding_Related\\Projects\\Business_Intelligence\\Business_Intelligence\\.archify\\architecture-business-intelligence-20261102-1625\\business-intelligence-architecture.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-11-02T10:56:24.886Z",
+    "source": "network",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 11856,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  }
+}

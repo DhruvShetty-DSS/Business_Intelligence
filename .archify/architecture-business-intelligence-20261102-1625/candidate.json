@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Business Intelligence Data Flow",
+    "subtitle": "High-level path from raw dataset upload to dashboard",
+    "output": "business-intelligence-architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "analysts",
+      "type": "external",
+      "label": "Business Analysts",
+      "sublabel": "Upload raw datasets",
+      "pos": [40, 270],
+      "size": [150, 68]
+    },
+    {
+      "id": "raw-dataset",
+      "type": "external",
+      "label": "Raw Dataset",
+      "sublabel": "Input file or records",
+      "pos": [240, 270],
+      "size": [145, 68],
+      "tag": "Format unknown"
+    },
+    {
+      "id": "web-frontend",
+      "type": "frontend",
+      "label": "Web Frontend",
+      "sublabel": "Upload and dashboard access",
+      "pos": [450, 90],
+      "size": [165, 68]
+    },
+    {
+      "id": "backend-api",
+      "type": "backend",
+      "label": "Backend API",
+      "sublabel": "Request handling",
+      "pos": [650, 320],
+      "size": [145, 68]
+    },
+    {
+      "id": "data-cleaning",
+      "type": "backend",
+      "label": "Data Cleaning Module",
+      "sublabel": "Transform and validate",
+      "pos": [850, 320],
+      "size": [170, 68]
+    },
+    {
+      "id": "database",
+      "type": "database",
+      "label": "Database",
+      "sublabel": "Persist cleaned data",
+      "pos": [850, 520],
+      "size": [145, 68],
+      "tag": "Technology unknown"
+    },
+    {
+      "id": "dashboard-layer",
+      "type": "backend",
+      "label": "Dashboard Layer",
+      "sublabel": "Prepare analytical views",
+      "pos": [1050, 320],
+      "size": [165, 68]
+    },
+    {
+      "id": "dashboard-view",
+      "type": "frontend",
+      "label": "Dashboard View",
+      "sublabel": "Insights for analysts",
+      "pos": [650, 90],
+      "size": [155, 68]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Frontend boundary",
+      "wraps": ["web-frontend", "dashboard-view"],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "Backend boundary",
+      "wraps": ["backend-api", "data-cleaning", "dashboard-layer"],
+      "pad": 28
+    },
+    {
+      "kind": "region",
+      "label": "Data layer boundary",
+      "wraps": ["database"],
+      "pad": 28
+    }
+  ],
+  "connections": [
+    {
+      "id": "analyst-selects-dataset",
+      "from": "analysts",
+      "to": "raw-dataset",
+      "label": "selects",
+      "variant": "emphasis"
+    },
+    {
+      "id": "dataset-upload",
+      "from": "raw-dataset",
+      "to": "web-frontend",
+      "label": "upload",
+      "variant": "emphasis"
+    },
+    {
+      "id": "frontend-to-api",
+      "from": "web-frontend",
+      "to": "backend-api",
+      "label": "upload request",
+      "variant": "emphasis"
+    },
+    {
+      "id": "api-to-cleaning",
+      "from": "backend-api",
+      "to": "data-cleaning",
+      "label": "dispatch"
+    },
+    {
+      "id": "cleaning-to-database",
+      "from": "data-cleaning",
+      "to": "database",
+      "label": "store cleaned data",
+      "variant": "emphasis"
+    },
+    {
+      "id": "database-to-dashboard",
+      "from": "database",
+      "to": "dashboard-layer",
+      "label": "query"
+    },
+    {
+      "id": "dashboard-to-view",
+      "from": "dashboard-layer",
+      "to": "dashboard-view",
+      "label": "render insights",
+      "variant": "emphasis"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Boundaries",
+      "items": [
+        "Frontend: user interaction and dashboard presentation",
+        "Backend: API orchestration, cleaning, and dashboard preparation",
+        "Data layer: persistence"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Unknowns",
+      "items": [
+        "No external dependencies specified",
+        "Dataset format, database technology, API protocol, and cleaning rules are unspecified"
+      ]
+    }
+  ]
+}
